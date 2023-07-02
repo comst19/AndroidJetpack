@@ -1,5 +1,6 @@
 package com.example.roomflowlistadapter
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.userRV.adapter = adapter
         binding.userRV.layoutManager = LinearLayoutManager(this)
+
+        binding.next.setOnClickListener {
+            val intent = Intent(this, NextActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.save.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {

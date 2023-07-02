@@ -1,5 +1,6 @@
 package com.example.roomflow
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.roomflow.databinding.ActivityMainBinding
@@ -59,6 +60,11 @@ class MainActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 db.textDao().deleteAllData()
             }
+        }
+
+        binding.next.setOnClickListener {
+            val intent = Intent(this, NextActivity::class.java)
+            startActivity(intent)
         }
     }
 }
